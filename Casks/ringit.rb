@@ -1,6 +1,6 @@
 cask "ringit" do
-  version "1.1.0"
-  sha256 "6f6b4010300d76c8305e0ab30caa46547339912c5352cd22d2c0e19e03ac6ef7"
+  version "1.1.1"
+  sha256 "5b0cee1be68eb5eea7a0cc49bedb2cd9f131f998b172d28dd0e6d894606b4925"
 
   url "https://github.com/452kaan/ringit/releases/download/v#{version}/Ringit.dmg"
   name "Ringit"
