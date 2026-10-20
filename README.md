@@ -41,24 +41,42 @@ the setup tells you and installs the Xcode Command Line Tools with one click.
    then go to System Settings → Privacy & Security and click **Open Anyway**.
    After that it opens normally.
 
+**With Homebrew:**
+
+```sh
+brew tap 452kaan/ringit https://github.com/452kaan/ringit
+brew install --cask ringit
+```
+
+Ringit also checks once a day whether there's a new version and tells you in the menu.
+After an update it tells you once that the new version is installed.
+
 On first launch a short setup walks you through everything: language, your shortcut, Git,
 Finder access, launch at login and (optional) Claude. You can skip it and bring it back any
-time from the menu with **Setup…**.
+time from the menu under **Settings → Setup…**.
+
+At the end you can take a short **guide** with pictures, one topic per page. It's always
+in the menu under **Guide…** too.
 
 ## Opening the ring
 
 Press <kbd>⌃</kbd><kbd>⌥</kbd><kbd>G</kbd>. Don't like it? Record your own shortcut in the
-setup or under **Change Shortcut…** in the menu.
+setup or under **Settings → Change Shortcut…** in the menu.
 
 The ring opens for whatever is selected in Finder: the selected folder, the folder of a
 selected file, or the folder of the front Finder window. If Finder isn't in front, you get
-the folder you used last. You can also pick one with **Open Folder…** in the menu.
+the folder you used last. You can also pick one with **Open Folder…** in the menu, or drop
+a folder right onto the ring.
 
 macOS asks once whether Ringit may read the Finder selection. If you said no, the ring
 opens on the folder you used last, and the menu shows **Allow Finder Access…**.
 
-**Moving the ring:** hold the center and drag. A plain click on the center goes up one
-folder (as far as the repo's top folder).
+**Moving the ring:** hold the center and drag. A click on the center next to the name goes
+up one folder (as far as the repo's top folder).
+
+**Switching folders:** click the name in the center (or right-click the center) to jump to
+one of your recent repos without going back to Finder. Hover a repo and the subfolders you
+used in it most recently show up next to it. Right-click an entry to open it in Finder.
 
 ## The ring
 
@@ -79,6 +97,16 @@ The center shows the repo name (plus the subfolder if you opened one), the branc
 many files changed ●. Once the branch is on the server you also see commits ahead ↑ and
 behind ↓. All panels open right next to the ring, no extra windows.
 
+**Auto-Fetch:** right-click **Fetch** and pick how often Ringit fetches this
+project in the background: every 5, 15 or 30 minutes, hourly or daily. It only applies to
+that one project and is off by default. Ringit only fetches, it never pulls. When there's
+something new on the server, the menu bar icon gets a dot, the menu shows where, and you get
+a notification (you can turn that off under **Settings → Auto-Fetch**).
+
+<p align="center">
+  <img src="docs/images/en/autofetch.jpg" alt="Right-click on Fetch with the Auto-Fetch intervals" width="760">
+</p>
+
 ## Status and commit
 
 <p align="center">
@@ -91,8 +119,10 @@ Renamed, Conflict) and how many lines were added and removed.
 
 - Tick files and press **Add (n)**, or tick files under *Ready to commit* and press
   **Remove (n)** to take them out of the commit again. Your changes stay as they are.
-- Double-click a file to open it. Right-click for *Show in Finder*, *Copy path* and
-  *Discard changes…*, which asks first and moves the current version to the Trash.
+- Hover a file and click the eye (or the +/− numbers) to see its changes, green for added
+  lines and red for removed ones.
+- Double-click a file to open it. Right-click for *Show Changes*, *Show in Finder*, *Copy path*
+  and *Discard changes…*, which asks first and moves the current version to the Trash.
 - Type a message at the bottom and press **Commit** or <kbd>⌘</kbd><kbd>↩</kbd>.
 
 **Subfolders work.** Open the ring on `my-repo/app/` and you only see what changed below
@@ -118,7 +148,7 @@ you can edit it by hand.
 Press **✦ Suggest** next to the commit field and Claude writes a message for the files in
 the commit. Read it, change what you like, then press **Commit** yourself.
 
-- Pick **English** or **German** under **Commit suggestion language** in the menu. English is the default.
+- Pick **English** or **German** in the setup or under **Settings → Commit suggestion language**. English is the default.
 - **No `Co-Authored-By` line.** The commit is yours. Ringit also strips such lines if
   Claude adds one anyway.
 - **Nothing gets committed without you.**
@@ -134,7 +164,7 @@ everything inside a `secrets/` or `credentials/` folder. A password in an ordina
 **How it talks to Claude:** through [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
 on your Mac, with your own Claude subscription. The setup installs it for you if you want and
 makes sure the `claude` command is found. If you'd rather not use Claude Code, add an
-Anthropic API key under **Claude → Add API Key…** in the menu. It's stored in your keychain.
+Anthropic API key under **Settings → Claude → Add API Key…** in the menu. It's stored in your keychain.
 Claude is completely optional; everything else works without it.
 
 ## Branches and stash
@@ -147,6 +177,20 @@ out locally.
 **Stash** puts all your changes aside, including new files, with an optional note. Your
 folder is clean afterwards. **Restore** brings them back. Right-click an entry for
 *Apply and Keep* or *Delete…*.
+
+## History, GitHub and GitLab
+
+<p align="center">
+  <img src="docs/images/en/history.jpg" alt="History next to the ring with two commits that aren't pushed yet" width="760">
+</p>
+
+**History** (the clock at the top of the status panel, or right-click the center) shows your
+last commits. An arrow marks the ones that aren't pushed yet. As long as the newest commit is
+only on your Mac, you can **Undo** it (the changes stay staged) or **Edit Message**.
+
+**On GitHub, GitLab or Bitbucket:** right-click the center for *Open on GitHub* and *Create
+Pull Request* (*Merge Request* on GitLab). After you push a new branch for the first time,
+the message under the ring offers the same link.
 
 ## When something goes wrong
 
@@ -176,14 +220,21 @@ mark each one as resolved with the checkmark, then **Continue** (rebase) or comm
 
 ## The menu
 
-Everything you can set lives in the menu bar icon, there's no settings window:
+Everything lives in the menu bar icon, there's no settings window:
 
-- **Open Folder…** (<kbd>⌘</kbd><kbd>O</kbd>) and your recent folders
-- **Claude**: whether Claude Code is installed and signed in, and the optional API key
-- **Launch at Login**
-- **Language**: follows macOS, or pick English or German
-- **Commit suggestion language**: English or German
-- **Change Shortcut…** and **Setup…**
+- **Open Folder…** (<kbd>⌘</kbd><kbd>O</kbd>)
+- **Recent**: your last three Git folders, older ones under **Show More**, and **Clear Recent**.
+  Hover a repo to see its recent subfolders; right-click an entry to open it in Finder
+- **Settings**:
+  - **Claude**: whether Claude Code is installed and signed in, and the optional API key
+  - **Commit suggestion language**: English or German
+  - **Auto-Fetch**: every project that's fetched in the background, to change or turn off,
+    and whether you get a notification about new commits
+  - **Launch at Login**
+  - **Language**: follows macOS, or pick English or German
+  - **Change Shortcut…**, **Setup…** and **Check for Updates…**
+- **Guide…**: everything Ringit can do, by topic
+- **Quit Ringit**
 
 ## Shortcuts
 
@@ -194,6 +245,7 @@ Everything you can set lives in the menu bar icon, there's no settings window:
 | <kbd>⌘</kbd> <kbd>↩</kbd> | Commit |
 | <kbd>Esc</kbd> | Close the open question, then the panel, then the ring |
 | Click the center | Go up one folder |
+| Click the name in the center | Switch to a recent folder |
 | Hold and drag the center | Move the ring |
 
 ## FAQ
@@ -214,7 +266,7 @@ it damaged, run `xattr -dr com.apple.quarantine /Applications/Ringit.app` once.
 
 **My shortcut does nothing.**
 Another app may already use it. In that case Ringit falls back to <kbd>⌃</kbd><kbd>⌥</kbd><kbd>G</kbd>.
-Pick a different one under **Change Shortcut…**.
+Pick a different one under **Settings → Change Shortcut…**.
 
 **I updated and the old version still opens.**
 Just start the new one. It quits the old copy by itself.

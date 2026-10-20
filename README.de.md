@@ -42,24 +42,43 @@ sagt dir das die Einrichtung und installiert die Xcode Command Line Tools mit ei
    dann Systemeinstellungen → Datenschutz & Sicherheit → **Dennoch öffnen**.
    Danach startet es ganz normal.
 
+**Mit Homebrew:**
+
+```sh
+brew tap 452kaan/ringit https://github.com/452kaan/ringit
+brew install --cask ringit
+```
+
+Ringit schaut außerdem einmal am Tag, ob es eine neue Version gibt, und sagt es dir im Menü.
+Nach einem Update zeigt es dir einmal, dass die neue Version installiert ist.
+
 Beim ersten Start führt dich eine kurze Einrichtung durch alles: Sprache, Tastenkürzel, Git,
 Finder-Zugriff, Start beim Anmelden und (freiwillig) Claude. Du kannst sie überspringen und
-jederzeit über **Einrichtung …** im Menü wieder öffnen.
+jederzeit über **Einstellungen → Einrichtung …** im Menü wieder öffnen.
+
+Am Ende kannst du dir eine kurze **Anleitung** mit Bildern ansehen, ein Thema pro Seite.
+Die findest du auch später jederzeit im Menü unter **Anleitung …**.
 
 ## Kreis öffnen
 
 <kbd>⌃</kbd><kbd>⌥</kbd><kbd>G</kbd> drücken. Gefällt dir nicht? In der Einrichtung oder
-unter **Tastenkürzel ändern …** im Menü nimmst du dein eigenes auf.
+unter **Einstellungen → Tastenkürzel ändern …** im Menü nimmst du dein eigenes auf.
 
 Der Kreis geht für das auf, was im Finder ausgewählt ist: den ausgewählten Ordner, den Ordner
 einer ausgewählten Datei oder den Ordner des vorderen Finder-Fensters. Ist der Finder nicht
-vorne, nimmt Ringit den zuletzt benutzten Ordner. Über **Ordner öffnen …** im Menü geht es auch.
+vorne, nimmt Ringit den zuletzt benutzten Ordner. Über **Ordner öffnen …** im Menü geht es auch,
+oder du ziehst einen Ordner direkt auf den Kreis.
 
 macOS fragt einmal, ob Ringit die Auswahl im Finder lesen darf. Wenn du Nein gesagt hast,
 geht der Kreis auf dem zuletzt benutzten Ordner auf, und im Menü steht **Finder-Zugriff erlauben …**.
 
-**Kreis verschieben:** Mitte festhalten und ziehen. Ein einfacher Klick auf die Mitte geht
-einen Ordner nach oben (bis zum Hauptordner des Repos).
+**Kreis verschieben:** Mitte festhalten und ziehen. Ein Klick auf die Mitte neben den Namen
+geht einen Ordner nach oben (bis zum Hauptordner des Repos).
+
+**Ordner wechseln:** Klick auf den Namen in der Mitte (oder Rechtsklick auf die Mitte) zeigt
+die zuletzt benutzten Repos, so wechselst du ohne Umweg über den Finder. Fährst du über ein
+Repo, klappen daneben die Unterordner auf, die du darin zuletzt benutzt hast. Ein Rechtsklick
+auf einen Eintrag öffnet den Ordner im Finder.
 
 ## Der Kreis
 
@@ -82,6 +101,16 @@ der Branch und wie viele Dateien geändert sind ●. Sobald der Branch auf dem S
 siehst du auch, wie viele Commits du voraus ↑ und hinterher ↓ bist. Alle Leisten gehen
 direkt neben dem Kreis auf, es gibt keine extra Fenster.
 
+**Auto-Fetch:** Rechtsklick auf **Fetch** und wählen, wie oft Ringit dieses Projekt im
+Hintergrund fetcht: alle 5, 15 oder 30 Minuten, stündlich oder täglich. Das gilt
+nur für dieses eine Projekt, Standard ist aus. Ringit fetcht nur und pullt nie. Gibt es
+Neues auf dem Server, bekommt das Menüleisten-Symbol einen Punkt, das Menü zeigt oben, wo,
+und du bekommst eine Mitteilung (abschaltbar unter **Einstellungen → Auto-Fetch**).
+
+<p align="center">
+  <img src="docs/images/de/autofetch.jpg" alt="Rechtsklick auf Fetch mit den Auto-Fetch-Abständen" width="760">
+</p>
+
 ## Status und Commit
 
 <p align="center">
@@ -95,8 +124,10 @@ weggefallen sind.
 
 - Dateien anhaken und **Hinzufügen (n)** drücken. Oder Dateien unter *Bereit zum Commit*
   anhaken und mit **Entfernen (n)** wieder aus dem Commit nehmen. Deine Änderungen bleiben dabei erhalten.
-- Doppelklick öffnet eine Datei. Rechtsklick für *Im Finder zeigen*, *Pfad kopieren* und
-  *Änderungen verwerfen …*. Das fragt vorher nach und legt den aktuellen Stand in den Papierkorb.
+- Mit der Maus über eine Datei und aufs Auge klicken (oder auf die +/−-Zahlen) zeigt ihre
+  Änderungen, grün was dazukam, rot was wegfiel.
+- Doppelklick öffnet eine Datei. Rechtsklick für *Änderungen anzeigen*, *Im Finder zeigen*,
+  *Pfad kopieren* und *Änderungen verwerfen …*. Das fragt vorher nach und legt den aktuellen Stand in den Papierkorb.
 - Unten die Nachricht eintippen und **Commit** oder <kbd>⌘</kbd><kbd>↩</kbd> drücken.
 
 **Unterordner gehen.** Öffnest du den Kreis auf `mein-repo/app/`, siehst du nur, was sich
@@ -122,7 +153,7 @@ unten zeigt die Datei, dort kannst du sie auch selbst bearbeiten.
 Neben dem Commit-Feld auf **✦ Vorschlag** drücken, und Claude schreibt eine Nachricht für die
 Dateien im Commit. Durchlesen, ändern was du willst, dann selbst auf **Commit** drücken.
 
-- Im Menü unter **Sprache der Commit-Vorschläge** wählst du **Englisch** oder **Deutsch**. Standard ist Englisch.
+- In der Einrichtung oder unter **Einstellungen → Sprache der Commit-Vorschläge** wählst du **Englisch** oder **Deutsch**. Standard ist Englisch.
 - **Keine `Co-Authored-By`-Zeile.** Der Commit gehört dir. Ringit entfernt solche Zeilen auch,
   falls Claude doch eine schreibt.
 - **Ohne dich wird nichts committet.**
@@ -138,7 +169,7 @@ normalen Datei wie `config.yml` geht mit, das gehört also nicht in den Commit.
 **Wie Ringit mit Claude redet:** über [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
 auf deinem Mac, mit deinem eigenen Claude-Abo. Die Einrichtung installiert es auf Wunsch und
 sorgt dafür, dass der Befehl `claude` gefunden wird. Willst du Claude Code nicht nutzen, kannst
-du im Menü unter **Claude → API-Schlüssel hinterlegen …** einen Anthropic-API-Schlüssel
+du im Menü unter **Einstellungen → Claude → API-Schlüssel hinterlegen …** einen Anthropic-API-Schlüssel
 eintragen. Der liegt dann in deinem Schlüsselbund. Claude ist komplett freiwillig, alles
 andere geht auch ohne.
 
@@ -151,6 +182,21 @@ hinwechseln. Branches, die es nur auf dem Server gibt, stehen extra. Ein Klick h
 **Stash** parkt alle Änderungen, auch neue Dateien, auf Wunsch mit Notiz. Dein Ordner ist
 danach sauber. **Zurückholen** bringt sie wieder. Rechtsklick auf einen Eintrag für
 *Anwenden und behalten* oder *Löschen …*.
+
+## Verlauf, GitHub und GitLab
+
+<p align="center">
+  <img src="docs/images/de/history.jpg" alt="Verlauf neben dem Kreis mit zwei noch nicht gepushten Commits" width="760">
+</p>
+
+**Verlauf** (die Uhr oben im Status oder Rechtsklick auf die Mitte) zeigt deine letzten
+Commits. Ein Pfeil markiert die, die noch nicht gepusht sind. Solange der neueste Commit nur
+auf deinem Mac liegt, kannst du ihn **rückgängig** machen (die Änderungen bleiben vorgemerkt)
+oder die **Nachricht ändern**.
+
+**Auf GitHub, GitLab oder Bitbucket:** Rechtsklick auf die Mitte für *Auf GitHub öffnen* und
+*Pull Request erstellen* (bei GitLab *Merge Request*). Nach dem ersten Push eines neuen
+Branches bietet die Meldung unter dem Kreis denselben Link an.
 
 ## Wenn etwas schiefgeht
 
@@ -182,14 +228,21 @@ oder committen (Merge). **Abbrechen** stellt den Stand von vorher wieder her.
 
 ## Das Menü
 
-Alles Einstellbare steckt im Symbol in der Menüleiste, ein Einstellungsfenster gibt es nicht:
+Alles steckt im Symbol in der Menüleiste, ein Einstellungsfenster gibt es nicht:
 
-- **Ordner öffnen …** (<kbd>⌘</kbd><kbd>O</kbd>) und die zuletzt benutzten Ordner
-- **Claude**: ob Claude Code installiert und angemeldet ist, und der freiwillige API-Schlüssel
-- **Beim Anmelden starten**
-- **Sprache**: wie macOS, oder Deutsch bzw. Englisch
-- **Sprache der Commit-Vorschläge**: Englisch oder Deutsch
-- **Tastenkürzel ändern …** und **Einrichtung …**
+- **Ordner öffnen …** (<kbd>⌘</kbd><kbd>O</kbd>)
+- **Zuletzt benutzt**: die letzten drei Git-Ordner, ältere unter **Weitere anzeigen**, dazu **Verlauf leeren**.
+  Über einem Repo klappen die zuletzt benutzten Unterordner auf, Rechtsklick öffnet einen Eintrag im Finder
+- **Einstellungen**:
+  - **Claude**: ob Claude Code installiert und angemeldet ist, und der freiwillige API-Schlüssel
+  - **Sprache der Commit-Vorschläge**: Englisch oder Deutsch
+  - **Auto-Fetch**: alle Projekte, die im Hintergrund gefetcht werden, zum Ändern oder Abschalten,
+    und ob du bei neuen Commits eine Mitteilung bekommst
+  - **Beim Anmelden starten**
+  - **Sprache**: wie macOS, oder Deutsch bzw. Englisch
+  - **Tastenkürzel ändern …**, **Einrichtung …** und **Nach Updates suchen …**
+- **Anleitung …**: alle Funktionen nach Themen
+- **Ringit beenden**
 
 ## Tastenkürzel
 
@@ -200,6 +253,7 @@ Alles Einstellbare steckt im Symbol in der Menüleiste, ein Einstellungsfenster 
 | <kbd>⌘</kbd> <kbd>↩</kbd> | Commit |
 | <kbd>Esc</kbd> | Erst die offene Rückfrage, dann die Leiste, dann den Kreis schließen |
 | Klick auf die Mitte | Einen Ordner nach oben |
+| Klick auf den Namen in der Mitte | Zu einem zuletzt benutzten Ordner wechseln |
 | Mitte festhalten und ziehen | Kreis verschieben |
 
 ## FAQ
@@ -220,7 +274,7 @@ Das liegt daran, dass sie nicht von Apple beglaubigt ist, siehe Schritt 3 unter
 
 **Mein Tastenkürzel tut nichts.**
 Vielleicht benutzt ein anderes Programm es schon. Dann nimmt Ringit wieder
-<kbd>⌃</kbd><kbd>⌥</kbd><kbd>G</kbd>. Unter **Tastenkürzel ändern …** ein anderes wählen.
+<kbd>⌃</kbd><kbd>⌥</kbd><kbd>G</kbd>. Unter **Einstellungen → Tastenkürzel ändern …** ein anderes wählen.
 
 **Nach dem Update geht noch die alte Version auf.**
 Einfach die neue starten. Sie beendet die alte von selbst.
