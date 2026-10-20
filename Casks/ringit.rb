@@ -1,12 +1,13 @@
 cask "ringit" do
-  version "1.1.1"
-  sha256 "0c20286e368cb5e1104c64b8b2fbb50b9b1868ece7d3878dee8afab6555a82c1"
+  version "1.2.0"
+  sha256 "c8bf658cdeef039526646539aa42d5cc38284d364665e6a6da517a03819036c3"
 
   url "https://github.com/452kaan/ringit/releases/download/v#{version}/Ringit.dmg"
   name "Ringit"
   desc "Small Git ring for the menu bar: pull, add, commit and push"
   homepage "https://github.com/452kaan/ringit"
 
+  auto_updates true
   depends_on macos: ">= :monterey"
 
   app "Ringit.app"
