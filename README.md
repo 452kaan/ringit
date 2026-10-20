@@ -48,8 +48,9 @@ brew tap 452kaan/ringit https://github.com/452kaan/ringit
 brew install --cask ringit
 ```
 
-Ringit also checks once a day whether there's a new version and tells you in the menu.
-After an update it tells you once that the new version is installed.
+**Updates:** Ringit checks once a day whether there's a new version and shows it at the top of the
+menu. One click downloads it, Ringit replaces itself and restarts. It only installs a version signed
+with the same certificate. Afterwards Ringit tells you once what's new.
 
 On first launch a short setup walks you through everything: language, your shortcut, Git,
 Finder access, launch at login and (optional) Claude. You can skip it and bring it back any
@@ -61,7 +62,8 @@ in the menu under **Guide…** too.
 ## Opening the ring
 
 Press <kbd>⌃</kbd><kbd>⌥</kbd><kbd>G</kbd>. Don't like it? Record your own shortcut in the
-setup or under **Settings → Change Shortcut…** in the menu.
+setup or under **Settings → Change Shortcut…** in the menu, even one with a single modifier
+like <kbd>⌃</kbd><kbd>G</kbd>.
 
 The ring opens for whatever is selected in Finder: the selected folder, the folder of a
 selected file, or the folder of the front Finder window. If Finder isn't in front, you get
@@ -178,13 +180,13 @@ out locally.
 folder is clean afterwards. **Restore** brings them back. Right-click an entry for
 *Apply and Keep* or *Delete…*.
 
-## History, GitHub and GitLab
+## Commit history, GitHub and GitLab
 
 <p align="center">
   <img src="docs/images/en/history.jpg" alt="History next to the ring with two commits that aren't pushed yet" width="760">
 </p>
 
-**History** (the clock at the top of the status panel, or right-click the center) shows your
+**Commit History** (the clock at the top of the status panel, or right-click the center) shows your
 last commits. An arrow marks the ones that aren't pushed yet. As long as the newest commit is
 only on your Mac, you can **Undo** it (the changes stay staged) or **Edit Message**.
 
@@ -230,6 +232,7 @@ Everything lives in the menu bar icon, there's no settings window:
   - **Commit suggestion language**: English or German
   - **Auto-Fetch**: every project that's fetched in the background, to change or turn off,
     and whether you get a notification about new commits
+  - **Favorites**: up to three repo folders that show up when you right-click the center of the ring
   - **Launch at Login**
   - **Language**: follows macOS, or pick English or German
   - **Change Shortcut…**, **Setup…** and **Check for Updates…**
@@ -269,7 +272,8 @@ Another app may already use it. In that case Ringit falls back to <kbd>⌃</kbd>
 Pick a different one under **Settings → Change Shortcut…**.
 
 **I updated and the old version still opens.**
-Just start the new one. It quits the old copy by itself.
+Just start the new one. It quits the old copy by itself. Updating from the menu avoids this, Ringit
+restarts on its own.
 
 ## License
 

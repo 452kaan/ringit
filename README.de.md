@@ -49,8 +49,9 @@ brew tap 452kaan/ringit https://github.com/452kaan/ringit
 brew install --cask ringit
 ```
 
-Ringit schaut außerdem einmal am Tag, ob es eine neue Version gibt, und sagt es dir im Menü.
-Nach einem Update zeigt es dir einmal, dass die neue Version installiert ist.
+**Updates:** Ringit schaut einmal am Tag, ob es eine neue Version gibt, und zeigt sie oben im Menü.
+Ein Klick darauf lädt sie, Ringit ersetzt sich selbst und startet neu. Installiert wird nur eine
+Version, die mit demselben Zertifikat signiert ist. Danach zeigt Ringit einmal, was neu ist.
 
 Beim ersten Start führt dich eine kurze Einrichtung durch alles: Sprache, Tastenkürzel, Git,
 Finder-Zugriff, Start beim Anmelden und (freiwillig) Claude. Du kannst sie überspringen und
@@ -62,7 +63,8 @@ Die findest du auch später jederzeit im Menü unter **Anleitung …**.
 ## Kreis öffnen
 
 <kbd>⌃</kbd><kbd>⌥</kbd><kbd>G</kbd> drücken. Gefällt dir nicht? In der Einrichtung oder
-unter **Einstellungen → Tastenkürzel ändern …** im Menü nimmst du dein eigenes auf.
+unter **Einstellungen → Tastenkürzel ändern …** im Menü nimmst du dein eigenes auf,
+auch mit nur einer Sondertaste wie <kbd>⌃</kbd><kbd>G</kbd>.
 
 Der Kreis geht für das auf, was im Finder ausgewählt ist: den ausgewählten Ordner, den Ordner
 einer ausgewählten Datei oder den Ordner des vorderen Finder-Fensters. Ist der Finder nicht
@@ -183,13 +185,13 @@ hinwechseln. Branches, die es nur auf dem Server gibt, stehen extra. Ein Klick h
 danach sauber. **Zurückholen** bringt sie wieder. Rechtsklick auf einen Eintrag für
 *Anwenden und behalten* oder *Löschen …*.
 
-## Verlauf, GitHub und GitLab
+## Commit-Verlauf, GitHub und GitLab
 
 <p align="center">
-  <img src="docs/images/de/history.jpg" alt="Verlauf neben dem Kreis mit zwei noch nicht gepushten Commits" width="760">
+  <img src="docs/images/de/history.jpg" alt="Commit-Verlauf neben dem Kreis mit zwei noch nicht gepushten Commits" width="760">
 </p>
 
-**Verlauf** (die Uhr oben im Status oder Rechtsklick auf die Mitte) zeigt deine letzten
+**Commit-Verlauf** (die Uhr oben im Status oder Rechtsklick auf die Mitte) zeigt deine letzten
 Commits. Ein Pfeil markiert die, die noch nicht gepusht sind. Solange der neueste Commit nur
 auf deinem Mac liegt, kannst du ihn **rückgängig** machen (die Änderungen bleiben vorgemerkt)
 oder die **Nachricht ändern**.
@@ -231,13 +233,14 @@ oder committen (Merge). **Abbrechen** stellt den Stand von vorher wieder her.
 Alles steckt im Symbol in der Menüleiste, ein Einstellungsfenster gibt es nicht:
 
 - **Ordner öffnen …** (<kbd>⌘</kbd><kbd>O</kbd>)
-- **Zuletzt benutzt**: die letzten drei Git-Ordner, ältere unter **Weitere anzeigen**, dazu **Verlauf leeren**.
+- **Zuletzt benutzt**: die letzten drei Git-Ordner, ältere unter **Weitere anzeigen**, dazu **Liste leeren**.
   Über einem Repo klappen die zuletzt benutzten Unterordner auf, Rechtsklick öffnet einen Eintrag im Finder
 - **Einstellungen**:
   - **Claude**: ob Claude Code installiert und angemeldet ist, und der freiwillige API-Schlüssel
   - **Sprache der Commit-Vorschläge**: Englisch oder Deutsch
   - **Auto-Fetch**: alle Projekte, die im Hintergrund gefetcht werden, zum Ändern oder Abschalten,
     und ob du bei neuen Commits eine Mitteilung bekommst
+  - **Favoriten**: bis zu drei Repo-Ordner, die beim Rechtsklick auf die Mitte des Kreises erscheinen
   - **Beim Anmelden starten**
   - **Sprache**: wie macOS, oder Deutsch bzw. Englisch
   - **Tastenkürzel ändern …**, **Einrichtung …** und **Nach Updates suchen …**
@@ -277,7 +280,8 @@ Vielleicht benutzt ein anderes Programm es schon. Dann nimmt Ringit wieder
 <kbd>⌃</kbd><kbd>⌥</kbd><kbd>G</kbd>. Unter **Einstellungen → Tastenkürzel ändern …** ein anderes wählen.
 
 **Nach dem Update geht noch die alte Version auf.**
-Einfach die neue starten. Sie beendet die alte von selbst.
+Einfach die neue starten. Sie beendet die alte von selbst. Mit dem Update im Menü passiert das nicht,
+da startet Ringit von allein neu.
 
 ## Lizenz
 
